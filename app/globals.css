@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #fbf3ea;
-  --color-cream-2: #f6e8d8;
-  --color-cocoa: #2b1a12;
-  --color-cocoa-2: #3d2518;
-  --color-clay: #c96f4a;
-  --color-clay-2: #e09a76;
+  /* Wax It Lagos brand palette — sampled from their Instagram:
+     deep forest green #2E3E37, champagne gold #BFA15C, warm cream #F5F2EA.
+     Token NAMES kept from the SILK palette so every component re-skins
+     from these values alone. */
+  --color-cream: #f5f2ea;
+  --color-cream-2: #e9eee7;
+  --color-cocoa: #2e3e37;
+  --color-cocoa-2: #3a4f45;
+  --color-clay: #bfa15c;
+  --color-clay-2: #d3bc85;
   --color-peach: #f3d9c8;
   --color-blush: #e8b4a0;
   --font-display: "Cormorant Garamond", Georgia, serif;
@@ -49,10 +53,10 @@ body {
 
 /* Outlined display text */
 .text-outline {
-  -webkit-text-stroke: 1.5px rgba(43, 26, 18, 0.35);
+  -webkit-text-stroke: 1.5px rgba(46, 62, 55, 0.35);
   color: transparent;
 }
 .text-outline-cream {
-  -webkit-text-stroke: 1.5px rgba(251, 243, 234, 0.4);
+  -webkit-text-stroke: 1.5px rgba(245, 242, 234, 0.4);
   color: transparent;
 }

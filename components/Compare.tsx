@@ -1,19 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Reveal, SectionHeading } from "./ui";
 
-const CompareCanvas = dynamic(() => import("./three").then((m) => m.CompareCanvas), { ssr: false });
+const CompareCanvas = dynamic(() => import("./PhotoStages").then((m) => m.ComparePhotos), { ssr: false });
 
-/* Before/after: drag the handle. The silk goes from creased + dull to
-   smooth + glossy — exactly what four weeks of waxing feels like. */
+/* Before/after: drag the handle — a true photo wipe between two real
+   water states, unsettled and mirror-still. */
 export default function Compare() {
   const [value, setValue] = useState(55);
-  const slider = useRef(55);
 
   const onChange = (v: number) => {
-    slider.current = v;
     setValue(v);
   };
 
@@ -28,21 +26,21 @@ export default function Compare() {
         />
         <Reveal className="mt-4 text-center">
           <p className="text-cocoa/70 text-lg">
-            Left: skin between appointments. Right: four weeks of Wax It Lagos.
+            Left: unsettled — the week still on your skin. Right: mirror-still, after the ritual.
           </p>
         </Reveal>
 
         <Reveal className="mt-12">
-          <div className="relative overflow-hidden rounded-[2rem] border border-cocoa/10 bg-gradient-to-br from-cream-2 to-peach shadow-xl shadow-clay/10">
+          <div className="relative overflow-hidden rounded-[2rem] border border-cocoa/10 bg-gradient-to-br from-cream-2 to-cream shadow-xl shadow-clay/10">
             <div className="relative h-[380px] sm:h-[480px]">
-              <CompareCanvas slider={slider} />
+              <CompareCanvas value={value} />
             </div>
             {/* labels */}
             <span className="absolute top-5 left-5 rounded-full bg-cocoa/85 px-4 py-1.5 text-xs font-bold text-cream">
-              BEFORE — creased
+              BEFORE — unsettled
             </span>
-            <span className="absolute top-5 right-5 rounded-full bg-clay px-4 py-1.5 text-xs font-bold text-cream">
-              AFTER — silk
+            <span className="absolute top-5 right-5 rounded-full bg-clay px-4 py-1.5 text-xs font-bold text-[#22302a]">
+              AFTER — mirror still
             </span>
             {/* handle line */}
             <div

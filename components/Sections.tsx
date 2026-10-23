@@ -1,7 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import {
   business,
   gallery,
@@ -10,10 +10,11 @@ import {
   proofStats,
   signatureServices,
 } from "@/lib/data";
-import { Counter, Magnetic, Reveal, SectionHeading, SilkDivider, SplitReveal } from "./ui";
+import { Counter, Magnetic, Reveal, SectionHeading, WaveDivider, SplitReveal } from "./ui";
 import { LogoLockup } from "./Logo";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const HeroCanvas = dynamic(() => import("./three").then((m) => m.HeroCanvas), { ssr: false });
+const PhotoBath = dynamic(() => import("./PhotoStages").then((m) => m.PhotoBath), { ssr: false });
 
 /* --------------------------------- NAV -------------------------------- */
 export function Nav() {
@@ -40,26 +41,35 @@ export function Nav() {
 }
 
 /* --------------------------------- HERO ------------------------------- */
+/* The Hammam Ritual: a brass-rimmed bath of green water, a thin pour   */
+/* streaming in, steam curling up through the headline.                 */
 export function Hero() {
+  // Recalculate reveal triggers once fonts and the canvas chunk settle,
+  // so nothing above the fold stays stuck mid-reveal.
+  useEffect(() => {
+    const id = setTimeout(() => ScrollTrigger.refresh(), 1400);
+    return () => clearTimeout(id);
+  }, []);
+
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden">
-      {/* 3D silk sheet fills the whole hero */}
+    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-[#1e2b25]">
+      {/* the ritual stage */}
       <div className="absolute inset-0">
-        <HeroCanvas />
+        <PhotoBath />
       </div>
       {/* soft scrims so the headline stays legible */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream/70 via-transparent to-cream" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cream/60 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1e2b25]/80 via-transparent to-[#1e2b25]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#1e2b25]/60 via-transparent to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-36 sm:pt-44 pb-16 min-h-[100svh] flex flex-col justify-between">
         <div className="max-w-3xl">
           <Reveal>
-            <p className="inline-flex items-center gap-2 rounded-full border border-clay/40 bg-cream/70 backdrop-blur px-4 py-2 text-xs font-bold tracking-[0.22em] uppercase text-clay">
+            <p className="inline-flex items-center gap-2 rounded-full border border-clay/50 bg-white/5 backdrop-blur px-4 py-2 text-xs font-bold tracking-[0.22em] uppercase text-clay-2">
               <span className="inline-block h-2 w-2 rounded-full bg-clay animate-pulse" />
-              Lekki's waxing spa · {business.rating}★ · {business.reviewCount} reviews
+              Lekki's spa · {business.rating}★ · {business.reviewCount} reviews
             </p>
           </Reveal>
-          <h1 className="mt-6 font-display text-[17vw] sm:text-8xl lg:text-[7.5rem] leading-[0.92] font-medium text-cocoa">
+          <h1 className="mt-6 font-display text-[17vw] sm:text-8xl lg:text-[7.5rem] leading-[0.92] font-medium text-cream">
             <SplitReveal text="Smooth is" />
             <br />
             <em className="text-clay">
@@ -67,9 +77,10 @@ export function Hero() {
             </em>
           </h1>
           <Reveal delay={0.45}>
-            <p className="mt-6 max-w-xl text-lg sm:text-xl text-cocoa/75 leading-relaxed">
-              The waxing spa Lekki trusts with its skin. Quick hands, calm rooms,
-              and results that stay smooth for weeks — not days.
+            <p className="mt-6 max-w-xl text-lg sm:text-xl leading-relaxed text-cream/75">
+              The spa Lekki trusts with its skin. Waxing, hammam, massage and
+              scrubs — calm rooms, quick hands, and results that stay smooth
+              for weeks, not days.
             </p>
           </Reveal>
           <Reveal delay={0.6}>
@@ -77,7 +88,7 @@ export function Hero() {
               <Magnetic>
                 <a
                   href={business.phoneHref}
-                  className="inline-flex items-center rounded-full bg-clay px-7 py-4 font-bold text-cream hover:bg-cocoa transition-colors min-h-[52px] shadow-lg shadow-clay/30"
+                  className="inline-flex items-center rounded-full bg-clay px-7 py-4 font-bold text-[#22302a] hover:bg-cream transition-colors min-h-[52px] shadow-lg shadow-clay/30"
                 >
                   Call to book →
                 </a>
@@ -87,7 +98,7 @@ export function Hero() {
                   href={business.instagramUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center rounded-full border-2 border-cocoa/25 bg-cream/60 backdrop-blur px-7 py-4 font-bold text-cocoa hover:border-clay hover:text-clay transition-colors min-h-[52px]"
+                  className="inline-flex items-center rounded-full border-2 border-cream/30 bg-white/5 backdrop-blur px-7 py-4 font-bold text-cream hover:border-clay hover:text-clay-2 transition-colors min-h-[52px]"
                 >
                   DM on Instagram
                 </a>
@@ -97,14 +108,14 @@ export function Hero() {
         </div>
 
         <Reveal delay={0.75}>
-          <div className="mt-14 flex flex-wrap gap-3 text-xs font-semibold text-cocoa/70">
-            <span className="rounded-full bg-cream/80 backdrop-blur border border-cocoa/10 px-4 py-2 animate-floaty">
-              ✦ Drag the silk — it ripples
+          <div className="flex flex-wrap gap-3 text-xs font-semibold text-cream/80">
+            <span className="rounded-full bg-white/10 backdrop-blur border border-white/15 px-4 py-2 animate-floaty">
+              ✦ Drag — look around the ritual
             </span>
-            <span className="rounded-full bg-cream/80 backdrop-blur border border-cocoa/10 px-4 py-2">
-              Brazilian · Legs · Brows · Underarm
+            <span className="rounded-full bg-white/10 backdrop-blur border border-white/15 px-4 py-2">
+              Waxing · Hammam · Massage · Scrubs
             </span>
-            <span className="rounded-full bg-cream/80 backdrop-blur border border-cocoa/10 px-4 py-2">
+            <span className="rounded-full bg-white/10 backdrop-blur border border-white/15 px-4 py-2">
               7A Taiye Olowu St, Lekki Phase 1
             </span>
           </div>
@@ -176,12 +187,10 @@ export function Services() {
                 className="group block overflow-hidden rounded-[2rem] bg-cream border border-cocoa/10 shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl hover:shadow-clay/20"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <Image
+                  <img
                     src={s.image}
                     alt={s.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <span className="absolute top-4 left-4 rounded-full bg-cream/90 px-3 py-1.5 text-xs font-bold text-cocoa">
                     {s.time}
@@ -293,12 +302,10 @@ export function Gallery() {
         {gallery.map((g, i) => (
           <Reveal key={g.src + i} delay={i * 0.05} className="shrink-0 snap-start">
             <figure className="relative w-[280px] sm:w-[360px] aspect-[4/5] overflow-hidden rounded-[2rem]">
-              <Image
+              <img
                 src={g.src}
                 alt={g.alt}
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="360px"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
               <figcaption className="absolute bottom-4 left-4 rounded-full bg-cream/90 px-4 py-1.5 text-xs font-bold text-cocoa">
                 {g.label}
@@ -308,7 +315,7 @@ export function Gallery() {
         ))}
       </div>
       <p className="max-w-7xl mx-auto px-5 sm:px-8 mt-4 text-xs text-cocoa/50">
-        Imagery is style reference stock — the salon's own photos replace it at launch.
+        Imagery is AI-generated concept photography in the spa's own colours — the salon's real photos replace it at launch.
       </p>
     </section>
   );
@@ -319,7 +326,7 @@ export function Visit() {
   return (
     <section id="visit" className="py-24 sm:py-32 bg-cream-2">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <SilkDivider />
+        <WaveDivider />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <div>
             <SectionHeading eyebrow="Find us" title="Come get" accent="smooth." />

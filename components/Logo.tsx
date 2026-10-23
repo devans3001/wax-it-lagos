@@ -1,6 +1,6 @@
 "use client";
 
-/* Wax It Lagos mark — a wax droplet with a silk swirl inside. */
+/* Wax It Lagos mark — a wax droplet with a steam swirl inside. */
 export function LogoLockup({ dark = false }: { dark?: boolean }) {
   const ring = dark ? "#e8b4a0" : "#c96f4a";
   return (

@@ -8,10 +8,10 @@ import { journeyStages } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const JourneyCanvas = dynamic(() => import("./three").then((m) => m.JourneyCanvas), { ssr: false });
+const JourneyCanvas = dynamic(() => import("./PhotoStages").then((m) => m.JourneyBackdrop), { ssr: false });
 
 /* Pinned horizontal journey: scroll down, travel sideways through the
-   four stages — while the silk behind you goes from rough to smooth. */
+   four stages — while the room behind you changes with each moment. */
 export default function Journey() {
   const wrap = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
@@ -53,15 +53,15 @@ export default function Journey() {
         <div className="absolute inset-0 bg-gradient-to-b from-cocoa/70 via-transparent to-cocoa/80" />
         <div ref={track} className="relative z-10 flex h-[100svh] items-center w-max">
           <div className="w-[88vw] sm:w-[60vw] shrink-0 pl-5 sm:pl-12 pr-6">
-            <p className="text-xs font-bold tracking-[0.3em] uppercase text-blush">The visit</p>
+            <p className="text-xs font-bold tracking-[0.3em] uppercase text-clay-2">The visit</p>
             <h2 className="mt-4 font-display text-6xl sm:text-8xl leading-[0.95] font-medium">
               One visit,
               <br />
               <em className="text-clay-2">four moments.</em>
             </h2>
             <p className="mt-6 max-w-md text-cream/70 text-lg">
-              Keep scrolling — you travel sideways through the visit, and the silk
-              behind you smooths out as you go.
+              Keep scrolling — you travel sideways through the visit, and the
+              room itself changes around you as you go.
             </p>
             <p className="mt-8 text-sm font-bold tracking-widest text-cream/50">SCROLL →</p>
           </div>
@@ -72,7 +72,7 @@ export default function Journey() {
               </p>
               <h3 className="mt-[-2rem] font-display text-5xl sm:text-6xl font-medium">{s.title}</h3>
               <p className="mt-4 max-w-md text-cream/75 text-lg leading-relaxed">{s.body}</p>
-              <p className="mt-6 text-xs font-bold tracking-[0.35em] text-blush">{s.word}</p>
+              <p className="mt-6 text-xs font-bold tracking-[0.35em] text-clay-2">{s.word}</p>
             </div>
           ))}
           <div className="w-[60vw] sm:w-[40vw] shrink-0 px-5 sm:px-8">
@@ -81,7 +81,7 @@ export default function Journey() {
             </p>
             <a
               href="tel:+2347011772168"
-              className="mt-8 inline-flex items-center rounded-full bg-clay px-7 py-4 font-bold text-cream hover:bg-cream hover:text-cocoa transition-colors min-h-[52px]"
+              className="mt-8 inline-flex items-center rounded-full bg-clay px-7 py-4 font-bold text-[#22302a] hover:bg-cream transition-colors min-h-[52px]"
             >
               Book the feeling →
             </a>

@@ -1,3 +1,5 @@
+import { BATH, JOURNEY_IMGS, LAB_IMGS } from "./photos";
+
 /* Wax It Lagos — verified facts, Oct 18, 2026.
    Sources: Fresha listing (rating, reviews, package prices), Facebook
    business listing (phone, address), Google business profile (categories,
@@ -37,28 +39,28 @@ export const signatureServices = [
     blurb: "The full works, front to back. Precise, quick, and calmer than you expect.",
     price: "Confirmed at booking",
     time: "±40 min",
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop",
+    image: LAB_IMGS.wax,
   },
   {
     name: "Full Leg Wax",
     blurb: "Thigh to ankle, hair out from the root — smooth for up to four weeks.",
     price: "Confirmed at booking",
     time: "±45 min",
-    image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=1200&auto=format&fit=crop",
+    image: JOURNEY_IMGS[2],
   },
   {
     name: "Facial & Brow Wax",
     blurb: "Brows, upper lip, chin — a clean frame for your face, shaped to you.",
     price: "Confirmed at booking",
     time: "±20 min",
-    image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1200&auto=format&fit=crop",
+    image: LAB_IMGS.scrub,
   },
   {
     name: "Underarm Wax",
     blurb: "The quickest confidence reset. In, out, sleeveless-ready.",
     price: "Confirmed at booking",
     time: "±15 min",
-    image: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=1200&auto=format&fit=crop",
+    image: LAB_IMGS.hammam,
   },
 ];
 
@@ -129,34 +131,34 @@ export const testimonials = [
 
 export const gallery = [
   {
-    src: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop",
-    alt: "Calm spa treatment room, warm tones",
+    src: BATH,
+    alt: "The hammam bath — emerald water, brass rim, candlelight",
+    label: "The bath",
+  },
+  {
+    src: JOURNEY_IMGS[0],
+    alt: "The spa reception in green and brass",
+    label: "The welcome",
+  },
+  {
+    src: JOURNEY_IMGS[1],
+    alt: "A prepared treatment room with cream linens",
     label: "The room",
   },
   {
-    src: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=1200&auto=format&fit=crop",
-    alt: "Spa massage treatment",
-    label: "The hands",
+    src: LAB_IMGS.hammam,
+    alt: "Steam rolling over the hammam stone",
+    label: "The steam",
   },
   {
-    src: "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?q=80&w=1200&auto=format&fit=crop",
-    alt: "Spa stones and towels",
-    label: "The calm",
+    src: LAB_IMGS.massage,
+    alt: "Hot basalt stones and massage oil",
+    label: "The stones",
   },
   {
-    src: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop",
-    alt: "Massage treatment in warm light",
-    label: "The reset",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1200&auto=format&fit=crop",
-    alt: "Rolled spa towels",
-    label: "The detail",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop",
-    alt: "Spa setting with orchid and towels",
-    label: "The mood",
+    src: JOURNEY_IMGS[3],
+    alt: "The relaxation lounge in golden light",
+    label: "The glow",
   },
 ];
 

@@ -189,8 +189,8 @@ export function SectionHeading({
   );
 }
 
-/* Animated silk-thread divider — an SVG wave whose stroke draws itself. */
-export function SilkDivider({ dark = false }: { dark?: boolean }) {
+/* Animated wave divider — an SVG ripple whose stroke draws itself. */
+export function WaveDivider({ dark = false }: { dark?: boolean }) {
   const ref = useRef<SVGPathElement>(null);
   useEffect(() => {
     const el = ref.current;
