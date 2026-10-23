@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import {
   business,
@@ -292,29 +292,90 @@ export function MenuBoard() {
 }
 
 /* ------------------------------- GALLERY ------------------------------ */
+/* Inside the spa — a pinned runway: the section sticks, your scroll walks
+   the photo strip sideways to its very end, and only then does the page
+   continue. Same scroll-drives-it mechanic as the before/after. */
 export function Gallery() {
+  const wrapRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const barRef = useRef<HTMLDivElement | null>(null);
+  const hintRef = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      const wrap = wrapRef.current;
+      const track = trackRef.current;
+      if (!wrap || !track) return;
+      const rect = wrap.getBoundingClientRect();
+      const distance = wrap.offsetHeight - window.innerHeight;
+      const p = distance > 0 ? Math.min(1, Math.max(0, -rect.top / distance)) : 0;
+      const max = Math.max(0, track.scrollWidth - window.innerWidth);
+      track.style.transform = `translateX(${-p * max}px)`;
+      if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
+      if (hintRef.current) hintRef.current.style.opacity = p > 0.9 ? "0" : "1";
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
-    <section className="py-24 sm:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <section className="relative">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-24 sm:pt-32">
         <SectionHeading eyebrow="Inside the spa" title="Calm, on" accent="purpose." />
       </div>
-      <div className="mt-12 flex gap-5 overflow-x-auto px-5 sm:px-8 pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {gallery.map((g, i) => (
-          <Reveal key={g.src + i} delay={i * 0.05} className="shrink-0 snap-start">
-            <figure className="relative w-[280px] sm:w-[360px] aspect-[4/5] overflow-hidden rounded-[2rem]">
-              <img
-                src={g.src}
-                alt={g.alt}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+
+      <div ref={wrapRef} className="relative h-[340vh]">
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+          <div ref={trackRef} className="flex gap-5 px-5 will-change-transform sm:px-8">
+            {gallery.map((g, i) => (
+              <figure
+                key={g.src + i}
+                className="relative aspect-[4/5] w-[280px] shrink-0 overflow-hidden rounded-[2rem] sm:w-[360px]"
+              >
+                <img
+                  src={g.src}
+                  alt={g.alt}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <figcaption className="absolute bottom-4 left-4 rounded-full bg-cream/90 px-4 py-1.5 text-xs font-bold text-cocoa">
+                  {g.label}
+                </figcaption>
+                <span className="absolute top-4 right-4 rounded-full bg-cocoa/70 px-3 py-1 text-[11px] font-bold text-cream">
+                  {i + 1} / {gallery.length}
+                </span>
+              </figure>
+            ))}
+          </div>
+          <div className="mx-5 mt-10 flex items-center gap-5 sm:mx-8">
+            <div className="h-[3px] flex-1 overflow-hidden rounded-full bg-cocoa/10">
+              <div
+                ref={barRef}
+                className="h-full w-full origin-left rounded-full bg-clay"
+                style={{ transform: "scaleX(0)" }}
               />
-              <figcaption className="absolute bottom-4 left-4 rounded-full bg-cream/90 px-4 py-1.5 text-xs font-bold text-cocoa">
-                {g.label}
-              </figcaption>
-            </figure>
-          </Reveal>
-        ))}
+            </div>
+            <span
+              ref={hintRef}
+              className="text-xs font-bold tracking-wide text-cocoa/50 uppercase transition-opacity duration-300"
+            >
+              Keep scrolling — walk the spa
+            </span>
+          </div>
+        </div>
       </div>
-      <p className="max-w-7xl mx-auto px-5 sm:px-8 mt-4 text-xs text-cocoa/50">
+
+      <p className="max-w-7xl mx-auto px-5 sm:px-8 pb-24 text-xs text-cocoa/50 sm:pb-32">
         Real moments from Wax It Lagos's own Instagram — concept photography only in the hero and parts of the visit.
       </p>
     </section>

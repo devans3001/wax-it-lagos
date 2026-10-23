@@ -1,5 +1,6 @@
 import { BATH } from "./bath";
 import { BATH_DEPTH } from "./bath-depth";
+import { BATH_VIDEO } from "./hero-video";
 import { JOURNEY_ARRIVE } from "./journey-arrive";
 import { JOURNEY_PREP } from "./journey-prep";
 import { JOURNEY_TREATMENT } from "./journey-treatment";
@@ -23,7 +24,7 @@ import { IG_ROOM } from "./ig-room";
 import { SKIN_BEFORE } from "./skin-before";
 import { SKIN_AFTER } from "./skin-after";
 
-export { BATH, BATH_DEPTH };
+export { BATH, BATH_DEPTH, BATH_VIDEO };
 export { IG_WAX, IG_HAMMAM, IG_MASSAGE, IG_BACK, IG_LYMPH, IG_REFLEX, IG_THERAPIST, IG_ROOM };
 export { IG2_GRANULES, IG2_WAXPOT, IG2_FACEWAX, IG2_RITUAL, LAB_WAX };
 
