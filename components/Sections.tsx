@@ -358,12 +358,11 @@ export function Gallery() {
               Keep scrolling — walk the spa
             </span>
           </div>
+          <p className="mx-5 mt-4 text-[11px] text-cocoa/45 sm:mx-8">
+            Real moments from Wax It Lagos's own Instagram — concept photography only in the hero and parts of the visit.
+          </p>
         </div>
       </div>
-
-      <p className="max-w-7xl mx-auto px-5 sm:px-8 pb-24 text-xs text-cocoa/50 sm:pb-32">
-        Real moments from Wax It Lagos's own Instagram — concept photography only in the hero and parts of the visit.
-      </p>
     </section>
   );
 }
