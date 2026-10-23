@@ -8,10 +8,14 @@ import { LAB_WAX } from "./lab-wax";
 import { LAB_SCRUB } from "./lab-scrub";
 import { LAB_HAMMAM } from "./lab-hammam";
 import { LAB_MASSAGE } from "./lab-massage";
-import { COMPARE_BEFORE } from "./compare-before";
-import { COMPARE_AFTER } from "./compare-after";
+import { SKIN_BEFORE } from "./skin-before";
+import { SKIN_AFTER } from "./skin-after";
 
-export { BATH, BATH_DEPTH, COMPARE_BEFORE, COMPARE_AFTER };
+export { BATH, BATH_DEPTH };
+
+/** The before/after pair is skin now: before the visit vs after Wax It. */
+export const COMPARE_BEFORE = SKIN_BEFORE;
+export const COMPARE_AFTER = SKIN_AFTER;
 
 /** Journey stages in order: Arrive, Prep, Wax, Glow. */
 export const JOURNEY_IMGS: string[] = [JOURNEY_ARRIVE, JOURNEY_PREP, JOURNEY_TREATMENT, JOURNEY_GLOW];

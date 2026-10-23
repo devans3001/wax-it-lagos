@@ -2,7 +2,7 @@
 
 A cinematic, immersive concept site for **Wax It Lagos**, the waxing spa at 7A Taiye Olowu Street, Lekki Phase 1.
 
-Concept: **THE HAMMAM RITUAL** — a brass-rimmed bath of deep green water under rising steam, in the spa's own brand colours (forest green `#2E3E37`, champagne gold `#BFA15C`, cream `#F5F2EA`, sampled from their Instagram). The bath is the site's one motif, told four ways: it pours and steams in the hero, settles from choppy to mirror-still as you travel the visit, re-dresses itself for every treatment in the Ritual Lab, and scrubs from unsettled to still on the before/after slider.
+Concept: **THE HAMMAM RITUAL, photographed** — AI-generated photoreal photography in the spa's own brand colours (forest green `#2E3E37`, champagne gold `#BFA15C`, cream `#F5F2EA`, sampled from their Instagram). The hero bath photograph parallaxes with real depth (AI depth map) under live steam; the visit travels through photographed rooms that change with each stage; the Ritual Lab shows a photographic close-up per treatment; and the before/after is a matched skin pair — overdue skin vs the same skin after one visit — revealed by dragging the handle or by scrolling (toggle on the card).
 
 ## What is real
 
