@@ -8,6 +8,10 @@ import { LAB_WAX } from "./lab-wax";
 import { LAB_SCRUB } from "./lab-scrub";
 import { LAB_HAMMAM } from "./lab-hammam";
 import { LAB_MASSAGE } from "./lab-massage";
+import { IG2_GRANULES } from "./ig2-granules";
+import { IG2_WAXPOT } from "./ig2-waxpot";
+import { IG2_FACEWAX } from "./ig2-facewax";
+import { IG2_RITUAL } from "./ig2-ritual";
 import { IG_WAX } from "./ig-wax";
 import { IG_HAMMAM } from "./ig-hammam";
 import { IG_MASSAGE } from "./ig-massage";
@@ -21,20 +25,20 @@ import { SKIN_AFTER } from "./skin-after";
 
 export { BATH, BATH_DEPTH };
 export { IG_WAX, IG_HAMMAM, IG_MASSAGE, IG_BACK, IG_LYMPH, IG_REFLEX, IG_THERAPIST, IG_ROOM };
+export { IG2_GRANULES, IG2_WAXPOT, IG2_FACEWAX, IG2_RITUAL, LAB_WAX };
 
 /** The before/after pair is skin now: before the visit vs after Wax It. */
 export const COMPARE_BEFORE = SKIN_BEFORE;
 export const COMPARE_AFTER = SKIN_AFTER;
 
 /** Journey stages in order: Arrive, Prep, Wax, Glow. */
-export const JOURNEY_IMGS: string[] = [JOURNEY_ARRIVE, JOURNEY_PREP, JOURNEY_TREATMENT, JOURNEY_GLOW];
+export const JOURNEY_IMGS: string[] = [JOURNEY_ARRIVE, JOURNEY_PREP, IG2_WAXPOT, JOURNEY_GLOW];
 
-/** Lab treatments by mode id. Their real Instagram photos wherever their
-    page has one; scrub keeps the AI photograph — no scrub shot exists on
-    their page (checked Oct 23, 2026). */
+/** Lab treatments by mode id — all four are the spa's real Instagram
+    photos (the scrub was found in their older posts, Oct 23, 2026). */
 export const LAB_IMGS: Record<string, string> = {
   wax: IG_WAX,
-  scrub: LAB_SCRUB,
+  scrub: IG2_GRANULES,
   hammam: IG_HAMMAM,
   massage: IG_MASSAGE,
 };

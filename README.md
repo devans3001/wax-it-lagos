@@ -15,7 +15,7 @@ Concept: **THE HAMMAM RITUAL, photographed** — AI-generated photoreal photogra
 
 1. **Waxing prices** — the waxing menu shows "Confirmed at booking". Replace with the real prices from the salon's Fresha price list in `lib/data.ts`.
 2. **Hours** — the hours note is a placeholder ("check Fresha"). Swap in real opening hours.
-3. **Photos** — the Ritual Lab, the Full Leg service card and most of the gallery now use the salon's REAL Instagram photos (downloaded Oct 23, 2026, embedded in `lib/photos/ig-*.ts`). AI concept photography remains only where their page has no shot: the body scrub, the hero bath, the journey rooms and three service cards.
+3. **Photos** — the Ritual Lab, the Full Leg service card and most of the gallery now use the salon's REAL Instagram photos (downloaded Oct 23, 2026, embedded in `lib/photos/ig-*.ts`). AI concept photography remains only in the hero bath, three of the four journey rooms and the Brazilian Wax card — everything else is the salon's own photography.
 4. **Booking** — CTAs call the salon and DM Instagram. Add the salon's direct Fresha booking link when supplied.
 
 ## Stack

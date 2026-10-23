@@ -58,7 +58,7 @@ export default function Lab() {
             </div>
             <p className="mt-8 font-display text-3xl sm:text-4xl leading-snug min-h-[7rem]">{current.copy}</p>
             <p className="mt-4 text-sm text-cocoa/60">
-              Up close, in the room where it happens — most of these are straight from the spa's own page.
+              Up close, in the room where it happens — every one of these is straight from the spa's own page.
             </p>
           </div>
           <div className="relative mx-auto w-full max-w-[400px] aspect-[4/5] rounded-[2rem] overflow-hidden bg-gradient-to-br from-cream-2 to-cream border border-cocoa/10 shadow-xl shadow-clay/10 ring-1 ring-cocoa/10">

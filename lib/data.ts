@@ -1,4 +1,4 @@
-import { BATH, IG_BACK, IG_LYMPH, IG_REFLEX, IG_ROOM, IG_THERAPIST, IG_WAX, JOURNEY_IMGS, LAB_IMGS } from "./photos";
+import { BATH, IG_BACK, IG_LYMPH, IG_REFLEX, IG_THERAPIST, IG_WAX, IG2_FACEWAX, IG2_RITUAL, JOURNEY_IMGS, LAB_IMGS, LAB_WAX } from "./photos";
 
 /* Wax It Lagos — verified facts, Oct 18, 2026.
    Sources: Fresha listing (rating, reviews, package prices), Facebook
@@ -39,7 +39,7 @@ export const signatureServices = [
     blurb: "The full works, front to back. Precise, quick, and calmer than you expect.",
     price: "Confirmed at booking",
     time: "±40 min",
-    image: LAB_IMGS.wax,
+    image: LAB_WAX,
   },
   {
     name: "Full Leg Wax",
@@ -53,7 +53,7 @@ export const signatureServices = [
     blurb: "Brows, upper lip, chin — a clean frame for your face, shaped to you.",
     price: "Confirmed at booking",
     time: "±20 min",
-    image: LAB_IMGS.scrub,
+    image: IG2_FACEWAX,
   },
   {
     name: "Underarm Wax",
@@ -156,9 +156,9 @@ export const gallery = [
     label: "The facial",
   },
   {
-    src: IG_ROOM,
-    alt: "Real moment from the spa — a massage in the treatment room",
-    label: "The unwind",
+    src: IG2_RITUAL,
+    alt: "Real moment from the spa — the hammam stone laid with scrub bowls",
+    label: "The ritual",
   },
 ];
 

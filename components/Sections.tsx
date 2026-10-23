@@ -315,7 +315,7 @@ export function Gallery() {
         ))}
       </div>
       <p className="max-w-7xl mx-auto px-5 sm:px-8 mt-4 text-xs text-cocoa/50">
-        Mostly real moments from Wax It Lagos's own Instagram — concept photography fills the few gaps their page doesn't cover yet.
+        Real moments from Wax It Lagos's own Instagram — concept photography only in the hero and parts of the visit.
       </p>
     </section>
   );
