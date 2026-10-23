@@ -106,20 +106,6 @@ export function Hero() {
             </div>
           </Reveal>
         </div>
-
-        <Reveal delay={0.75}>
-          <div className="flex flex-wrap gap-3 text-xs font-semibold text-cream/80">
-            <span className="rounded-full bg-white/10 backdrop-blur border border-white/15 px-4 py-2 animate-floaty">
-              ✦ Drag — look around the ritual
-            </span>
-            <span className="rounded-full bg-white/10 backdrop-blur border border-white/15 px-4 py-2">
-              Waxing · Hammam · Massage · Scrubs
-            </span>
-            <span className="rounded-full bg-white/10 backdrop-blur border border-white/15 px-4 py-2">
-              7A Taiye Olowu St, Lekki Phase 1
-            </span>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
