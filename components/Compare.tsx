@@ -11,9 +11,25 @@ const CompareCanvas = dynamic(() => import("./PhotoStages").then((m) => m.Compar
    reveal it — drag the handle, or flip to Scroll and let the page drive
    the same wipe while the card stays pinned. */
 export default function Compare() {
-  const [value, setValue] = useState(55);
-  const [mode, setMode] = useState<"drag" | "scroll">("drag");
+  const [value, setValue] = useState(88);
+  const [mode, setMode] = useState<"drag" | "scroll">("scroll");
   const wrapRef = useRef<HTMLDivElement | null>(null);
+
+  /* Switching modes changes the page height by ~140vh (the scroll runway).
+     GSAP's ScrollTriggers (the pinned Journey above) cache the old layout,
+     which made the sections below slide over each other — refresh them
+     after every switch so Menu / Voices keep their true positions. */
+  useEffect(() => {
+    const t = setTimeout(async () => {
+      try {
+        const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+        ScrollTrigger.refresh();
+      } catch {
+        /* gsap unavailable — layout still works, only pin offsets age */
+      }
+    }, 140);
+    return () => clearTimeout(t);
+  }, [mode]);
 
   useEffect(() => {
     if (mode !== "scroll") return;
