@@ -315,7 +315,7 @@ export function Gallery() {
         ))}
       </div>
       <p className="max-w-7xl mx-auto px-5 sm:px-8 mt-4 text-xs text-cocoa/50">
-        Imagery is AI-generated concept photography in the spa's own colours — the salon's real photos replace it at launch.
+        Mostly real moments from Wax It Lagos's own Instagram — concept photography fills the few gaps their page doesn't cover yet.
       </p>
     </section>
   );

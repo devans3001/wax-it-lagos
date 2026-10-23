@@ -1,4 +1,4 @@
-import { BATH, JOURNEY_IMGS, LAB_IMGS } from "./photos";
+import { BATH, IG_BACK, IG_LYMPH, IG_REFLEX, IG_ROOM, IG_THERAPIST, IG_WAX, JOURNEY_IMGS, LAB_IMGS } from "./photos";
 
 /* Wax It Lagos — verified facts, Oct 18, 2026.
    Sources: Fresha listing (rating, reviews, package prices), Facebook
@@ -46,7 +46,7 @@ export const signatureServices = [
     blurb: "Thigh to ankle, hair out from the root — smooth for up to four weeks.",
     price: "Confirmed at booking",
     time: "±45 min",
-    image: JOURNEY_IMGS[2],
+    image: IG_WAX,
   },
   {
     name: "Facial & Brow Wax",
@@ -136,29 +136,29 @@ export const gallery = [
     label: "The bath",
   },
   {
-    src: JOURNEY_IMGS[0],
-    alt: "The spa reception in green and brass",
-    label: "The welcome",
+    src: IG_BACK,
+    alt: "Real moment from the spa — hands working over an oiled leg",
+    label: "The release",
   },
   {
-    src: JOURNEY_IMGS[1],
-    alt: "A prepared treatment room with cream linens",
-    label: "The room",
+    src: IG_LYMPH,
+    alt: "Real moment from the spa — lymphatic drainage massage",
+    label: "The restore",
   },
   {
-    src: LAB_IMGS.hammam,
-    alt: "Steam rolling over the hammam stone",
-    label: "The steam",
+    src: IG_REFLEX,
+    alt: "Real moment from the spa — foot reflexology in progress",
+    label: "The details",
   },
   {
-    src: LAB_IMGS.massage,
-    alt: "Hot basalt stones and massage oil",
-    label: "The stones",
+    src: IG_THERAPIST,
+    alt: "Real moment from the spa — a facial treatment in progress",
+    label: "The facial",
   },
   {
-    src: JOURNEY_IMGS[3],
-    alt: "The relaxation lounge in golden light",
-    label: "The glow",
+    src: IG_ROOM,
+    alt: "Real moment from the spa — a massage in the treatment room",
+    label: "The unwind",
   },
 ];
 

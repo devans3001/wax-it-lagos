@@ -29,7 +29,7 @@ const MODES = [
   },
 ];
 
-/* The Ritual Lab: switch treatments, watch the bath re-dress itself. */
+/* The Ritual Lab: switch treatments, see each one up close — real photos from the spa's own page wherever their page has one. */
 export default function Lab() {
   const [active, setActive] = useState("wax");
   const current = MODES.find((m) => m.id === active)!;
@@ -58,10 +58,10 @@ export default function Lab() {
             </div>
             <p className="mt-8 font-display text-3xl sm:text-4xl leading-snug min-h-[7rem]">{current.copy}</p>
             <p className="mt-4 text-sm text-cocoa/60">
-              Every treatment, photographed up close in the spa's own colours. Pick one and look.
+              Up close, in the room where it happens — most of these are straight from the spa's own page.
             </p>
           </div>
-          <div className="relative h-[340px] sm:h-[440px] rounded-[2rem] overflow-hidden bg-gradient-to-br from-cream-2 to-cream border border-cocoa/10 shadow-xl shadow-clay/10">
+          <div className="relative mx-auto w-full max-w-[400px] aspect-[4/5] rounded-[2rem] overflow-hidden bg-gradient-to-br from-cream-2 to-cream border border-cocoa/10 shadow-xl shadow-clay/10 ring-1 ring-cocoa/10">
             <LabCanvas mode={active} />
           </div>
         </div>
